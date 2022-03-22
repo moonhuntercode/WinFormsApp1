@@ -20,12 +20,41 @@ namespace WinFormsApp1
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Form1 form = new Form1();
-            form.ShowDialog();
+            Form2 form2 = new Form2();
+            form.Show();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+            String user = textBox1.Text;
+            String password = textBox2.Text;
+            Form3 form3 = new Form3();
+            if(user == "" || password == "")
+            {
+                MessageBox.Show("vacio");
+            }
+            else if(user =="pt" & password == "foo") {
+                MessageBox.Show("correcto");
+                form3.Show();
+            }
+        }
 
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                textBox2.Focus();
+            }
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if( e.KeyCode == Keys.Enter)
+            {
+                button1.Focus();
+            }
         }
     }
 }
